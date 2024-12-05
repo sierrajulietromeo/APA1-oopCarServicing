@@ -51,3 +51,22 @@ export class ElectricVehicle extends Vehicle {
                 - Inspect charging system`;
     }
 }
+
+export class HybridVehicle extends Vehicle {
+    constructor(make, model, year, engineSize, batteryCapacity) {
+        super(make, model, year);
+        this.engineSize = engineSize;
+        this.batteryCapacity = batteryCapacity;
+        this.fuelType = "Hybrid";
+    }
+
+    getMaintenanceChecklist() {
+        return `Checklist for ${this.getInfo()}:
+                - Check oil levels
+                - Inspect spark plugs
+                - Check fuel system
+                - Check battery health
+                - Inspect hybrid system
+                - Check regenerative braking`;
+    }
+}
