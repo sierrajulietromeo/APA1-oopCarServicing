@@ -15,6 +15,61 @@ A JavaScript-based system for managing vehicle services, demonstrating object-or
 - Service history tracking for individual vehicles
 - Maintenance checklists specific to vehicle types
 
+## Class Diagram
+
+```mermaid
+classDiagram
+    class Vehicle {
+        -Map completedServices
+        +String make
+        +String model
+        +Number year
+        +constructor(make, model, year)
+        +getCompletedServices()
+        +recordCompletedService(date, serviceType)
+        +getInfo()
+    }
+
+    class PetrolVehicle {
+        +String engineSize
+        +String fuelType
+        +constructor(make, model, year, engineSize)
+        +getMaintenanceChecklist()
+    }
+
+    class ElectricVehicle {
+        +String batteryCapacity
+        +String fuelType
+        +constructor(make, model, year, batteryCapacity)
+        +getMaintenanceChecklist()
+    }
+
+    class HybridVehicle {
+        +String engineSize
+        +String batteryCapacity
+        +String fuelType
+        +constructor(make, model, year, engineSize, batteryCapacity)
+        +getMaintenanceChecklist()
+    }
+
+    class ServiceCentre {
+        -Map plannedServices
+        -Map serviceMenu
+        +constructor()
+        +scheduleService(vehicle, serviceType)
+        +processPlannedServices()
+        +calculateTotalCosts(vehicle)
+        +getServiceHistory(vehicle)
+        +completeService(vehicle, serviceType, notes)
+        +getAllServices(vehicle)
+    }
+
+    Vehicle <|-- PetrolVehicle
+    Vehicle <|-- ElectricVehicle
+    Vehicle <|-- HybridVehicle
+    ServiceCentre ..> Vehicle
+```
+
 ## Learning Tasks
 ### 1. Add a HybridVehicle Class
 * Create a new class that inherits from Vehicle
