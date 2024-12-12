@@ -81,4 +81,4 @@ classDiagram
 * ServiceCentre: Manages service scheduling and processing
 ---
 
-Each task builds upon the existing codebase and introduces new concepts while reinforcing OOP principles.
+Each task builds upon the existing codebase and introduces new concepts and still reinforcing OOP principles.
